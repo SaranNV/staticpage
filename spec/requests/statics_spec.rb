@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Statics" do         # it denotes the staics folder in app
+	let (:heading) {"Ruby on Rails Tutorial Sample App"}
   describe "Home Page" do     #  it describes which page to check
   	it "should have the content 'Sample App'" do
   		visit '/statics/home'
@@ -17,7 +18,7 @@ describe "Home Page" do
 
 	it "should have the title  'Home'" do
 	    visit '/statics/home'
-	    page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | Home")	 # this would check the title of the home page contains home
+	    page.should have_selector('title', :text => "#{heading} | Home")	 # this would check the title of the home page contains home
 	 end
 end
 describe "Help Page" do
@@ -31,7 +32,7 @@ end
 	end
 	it "should have the title  'Help'" do
 	    visit '/statics/help'
-	    page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | Help")	
+	    page.should have_selector('title', :text => "#{heading} | Help")	
 	 end
 end
 describe "About Page" do
@@ -48,7 +49,18 @@ describe "About Us" do
 	end
 	it "should have the title  'About Us'" do
 	    visit '/statics/aboutus'
-	    page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | About us")	
+	    page.should have_selector('title', :text => "#{heading} | About us")	
+	 end
+end
+
+describe "Contact us" do
+	it "should have the h1 'Contact us'" do
+		visit '/statics/contactus'
+		page.should have_selector('h1', :text => 'Contact us')
+	end
+	it "should have the title 'Contact us'" do
+	    visit '/statics/contactus'
+	    page.should have_selector('title', :text => "#{heading} | Contact us")	
 	 end
 end
 

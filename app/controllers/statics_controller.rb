@@ -6,4 +6,6 @@ class StaticsController < ApplicationController
   end
   def about
   end
+  def contactus
+  end
 end

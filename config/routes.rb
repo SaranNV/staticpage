@@ -3,6 +3,7 @@ Staticpage::Application.routes.draw do
 
   get "statics/help"
   get "statics/aboutus"
+  get "statics/contactus"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
