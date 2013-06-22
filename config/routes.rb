@@ -1,9 +1,17 @@
 Staticpage::Application.routes.draw do
-  get "statics/home"
+  root to: 'static_pages#home'
+  #get "statics/home"
+  match '/home', to: 'statics#home'
 
-  get "statics/help"
-  get "statics/aboutus"
-  get "statics/contactus"
+  #get "statics/help"
+  match '/help', to: 'static#help'
+
+  #get "statics/aboutus"
+  match '/aboutus', to: 'statics#aboutus'
+  
+  #get "statics/contactus"
+  match '/contactus', to: 'statics#contactus'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

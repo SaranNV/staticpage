@@ -2,14 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <title>  <%= full_title(yield(:title)) %></title> <!--  for the title a common method is defined in the application_helper page -->
+
+  <!-- => repalced with : in media -->
+  <%= stylesheet_link_tag    "application", media: "all" %>                 
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render '/layouts/shim' %>
 </head>
-<body>
+<body>	 <!-- navbar comes from bootsrap which we installed then images are in assets.. #####header tag indicates elements to go at the top of the page navbar and navbar fixed top are css classes  ##### div part divided document into 2 parts  -->
+   
+    <!-- Rails helper link_to to create links is link_to the first argument to link_to is the
+link text, while the second is the URI. We’ll fill in the URIs with named routes
+in Section 5.3.3, but for now we use the stub URI ’#’ commonly used in web
+design. The third argument is an options hash, in this case adding the CSS id
+logo to the sample app link.  -->
 
+  <!-- The second element inside the divs is a list of navigation links, made using
+the unordered list tag ul, together with the list item tag li -->
+
+<%= render '/layouts/header' %>
+<div class="container">
 <%= yield %>
-
+<%= render '/layouts/footer' %>
+</div>
 </body>
 </html>
